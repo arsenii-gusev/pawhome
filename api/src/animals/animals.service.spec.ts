@@ -11,7 +11,7 @@ describe('AnimalsService', () => {
     findAndCount: jest.fn(),
     findOne: jest.fn(),
     create: jest.fn((dto: Partial<Animal>) => ({ ...dto }) as Animal),
-    save: jest.fn(async (entity: Animal) => ({ id: 'a-1', ...entity })),
+    save: jest.fn(async (entity: Animal) => ({ ...entity, id: entity.id ?? 'a-1' })),
     delete: jest.fn(),
   };
 
